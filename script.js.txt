@@ -1,0 +1,18 @@
+function calculateAge() {
+    const dob = document.getElementById('dob').value;
+    if (!dob) {
+        alert("Please select a date of birth.");
+        return;
+    }
+    
+    const birthDate = new Date(dob);
+    const today = new Date();
+    const age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    document.getElementById('result').innerText = `Your age is: ${age} years`;
+}
